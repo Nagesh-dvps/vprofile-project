@@ -7,12 +7,16 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v4   
-     - name: Myfirst-stage
-       run: | 
-          pwd
-          ls -la  
+    - uses: actions/checkout@v4
 
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin' # See 'Supported distributions' for available options
+        java-version: '11'
+    - run: mvn clean install
+    - run: ls -la  
+    - run: mvn clean
+    - run: ls -la    
 
 
 
