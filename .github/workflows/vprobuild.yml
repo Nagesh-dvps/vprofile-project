@@ -1,17 +1,49 @@
-name: Build Workflow
-on: workflow_dispatch
+name: Myfirstactions
+on: 
+  # schedule:
+  #   # * is a special character in YAML so you have to quote this string
+  #   - cron:  '30 5,17 * * *'
+  push:
+    branches:
+      - 'vp-rem'  
+  # workflow_dispatch:
+  #   inputs:
+  #     flutter_version:
+  #       description: 'Framework version'
+  #       required: true
+  #       default: '2.5.3'
+  #     publish_artifacts:
+  #       description: 'Publish artifacts'
+  #       required: true
+  #       default: 'true'
 jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-     - name: Fetch Source coce
-       uses: actions/checkout@v4
-     - name: Build artifacts
+     - name: Myfirst-stage
        run: | 
-          mvn install
-          mv target/vprofile-v2.war .
-          rm -rf target
-          mkdir target
-          mv vprofile-v2.war target/
-          ls -l target/
-          
+          echo "Nagesh"    
+     - name: Myfirst-stage
+       run: | 
+          echo "Hello Vinay"   
+
+
+
+
+
+
+
+
+
+
+
+    #  - name: Fetch Source code
+    #    uses: actions/checkout@v4
+    #  - name: Build artifacts
+    #    run: | 
+    #       mvn install
+    #       mv target/vprofile-v2.war .
+    #       rm -rf target
+    #       mkdir target
+    #       mv vprofile-v2.war target/
+    #       ls -l target/
