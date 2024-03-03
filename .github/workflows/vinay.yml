@@ -1,0 +1,52 @@
+name: Vinay-actions
+on: 
+  push:
+    branches:
+      - 'vp-rem'  
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin' # See 'Supported distributions' for available options
+        java-version: '11'
+    - run: mvn clean install
+    - run: ls -la  
+    - run: mvn clean
+    - run: ls -la 
+
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin' # See 'Supported distributions' for available options
+        java-version: '11'
+    - run: mvn clean install
+    - run: ls -la  
+    - run: mvn clean
+    - run: ls -la
+
+
+
+
+
+
+
+
+
+    #  - name: Fetch Source code
+    #    uses: actions/checkout@v4
+    #  - name: Build artifacts
+    #    run: | 
+    #       mvn install
+    #       mv target/vprofile-v2.war .
+    #       rm -rf target
+    #       mkdir target
+    #       mv vprofile-v2.war target/
+    #       ls -l target/
