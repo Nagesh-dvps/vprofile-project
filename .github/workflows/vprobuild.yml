@@ -1,38 +1,19 @@
 name: Myfirstactions
 on: 
-  # schedule:
-  #   # * is a special character in YAML so you have to quote this string
-  #   - cron:  '30 5,17 * * *'
-  # push:
-  #   branches:
-  #     - 'vp-rem'  
-  workflow_dispatch:
-    inputs:
-      flutter_version:
-        description: 'Framework version'
-        required: true
-        default: '2.5.3'
-      publish_artifacts:
-        description: 'Publish artifacts'
-        required: true
-        default: 'true'
+  push:
+    branches:
+      - 'vp-rem'  
 jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
+     - uses: actions/checkout@v4   
      - name: Myfirst-stage
        run: | 
-          echo "Nagesh"    
-     - name: Myfirst-stage
-       run: | 
-          echo "Hello Vinay"   
-     - name: Printmy-first-input-params
-       run: | 
-          echo "${{ inputs.flutter_version }}" 
-          echo "${{ inputs.publish_artifacts }}"         
-    #  - name: Myfirst-stage
-    #    run: | 
-    #       echo "Hello Vinay" 
+          pwd
+          ls -la  
+
+
 
 
 
